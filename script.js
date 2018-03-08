@@ -19,13 +19,13 @@ const ticTacToe = {
   // ---------------- Set board and Game State Functions ----------------
   hideOrShow(id, show) {
     if (show) {
-      document.getElementById(id).classList.add('animated');
-      document.getElementById(id).classList.add(this.alertAnimation);
+      // document.getElementById(id).classList.add('animated');
+      // document.getElementById(id).classList.add(this.alertAnimation);
       document.getElementById(id).classList.remove('hide');
     } else {
       document.getElementById(id).classList.add('hide');
-      document.getElementById(id).classList.remove('animated');
-      document.getElementById(id).classList.remove(this.alertAnimation);
+      // document.getElementById(id).classList.remove('animated');
+      // document.getElementById(id).classList.remove(this.alertAnimation);
       this.resetBoard();
     }
   },
@@ -64,7 +64,7 @@ const ticTacToe = {
   masterReset() {
     this.turnStatus = 'player';
     this.resetBoard();
-    this.hideOrShow('chooseXO', true);
+    this.hideOrShow('chooseXO', true); // If only one parameter, it is set to hide
     this.hideOrShow('xWins');
     this.hideOrShow('oWins');
     this.hideOrShow('tie');
