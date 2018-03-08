@@ -14,7 +14,7 @@ const ticTacToe = {
   playerLetter: 'o',
   score: { Player: 0, Computer: 0, Ties: 0 },
   boxAnimation: 'flipInX',
-  alertAnimation: 'fadeIn',
+  alertAnimation: 'flipInX',
 
   // ---------------- Set board and Game State Functions ----------------
   hideOrShow(id, show) {
