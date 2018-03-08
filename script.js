@@ -19,13 +19,13 @@ const ticTacToe = {
   // ---------------- Set board and Game State Functions ----------------
   hideOrShow(id, show) {
     if (show) {
-      // document.getElementById(id).classList.add('animated');
-      // document.getElementById(id).classList.add(this.alertAnimation);
       document.getElementById(id).classList.remove('hide');
+      document.getElementById(id).classList.add('animated');
+      document.getElementById(id).classList.add(this.alertAnimation);
     } else {
+      document.getElementById(id).classList.remove('animated');
+      document.getElementById(id).classList.remove(this.alertAnimation);
       document.getElementById(id).classList.add('hide');
-      // document.getElementById(id).classList.remove('animated');
-      // document.getElementById(id).classList.remove(this.alertAnimation);
       this.resetBoard();
     }
   },
@@ -39,7 +39,7 @@ const ticTacToe = {
     }
     this.hideOrShow(id);
   },
-
+  // Sets HTML only dependent on the turn status.
   setTurn() {
     document.getElementById('turn_Score').innerHTML = `Turn: ${this.turnStatus}`;
   },
@@ -86,23 +86,20 @@ const ticTacToe = {
 
     ) {
       this.gameBoardStatus = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-      setTimeout(() => {
-        this.hideOrShow(`${xO}Wins`, true);
-        if (xO == this.playerLetter) {
-          this.score.Player++;
-        } else {
-          this.score.Computer++;
-        }
-      }, 200);
+
+      this.hideOrShow(`${xO}Wins`, true);
+      if (xO == this.playerLetter) {
+        this.score.Player++;
+      } else {
+        this.score.Computer++;
+      }
       return false;
     }
-    return true;
+    return true; // Returns true to trigger check tie function
   },
   checkTie() {
     if (!this.gameBoardStatus.includes(0)) {
-      setTimeout(() => {
-        this.hideOrShow('tie', true);
-      }, 200);
+      this.hideOrShow('tie', true);
       this.score.Ties++;
     }
   },
@@ -113,6 +110,7 @@ const ticTacToe = {
     const ply = this.playerLetter;
     const totals = this.getTotals();
     if (this.turnStatus == 'computer') {
+      // These are various round 3 checks not covered by the 1 or 2 in a row check
       if ((totals[0] <= 1 && totals[1] == 0) || totals[1] == 0) {
         this.round1();
       } else if (y[4] == ply && y[8] == ply && totals[0] <= 2) {
@@ -126,6 +124,7 @@ const ticTacToe = {
       } else if (((y[7] == ply && y[5] == ply))
         && totals[0] <= 2) {
         this.computerMakeXO(8);
+        // Checks two in a Row, if not does one in a row. Both check if computer can do it first.
       } else if (this.twoInARowCheck() == false) {
         this.oneInARowCheck();
       }

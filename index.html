@@ -12,21 +12,15 @@
 <body >
     <div id="tic-tac-toe-container">
         <h1>Tic Tac Toe</h1>
+        <h2 id="turn_Score">Turn: Player</h2>
         <div>
-            <!-- <p id="score-title">Score</p> -->
             <div id=score>
-                <p id="turn_Score">Player</p>
-                <p id="ties_Score">Ties: </p>
-                
-                <div>
-                    <p id="player_Score">Player: </p>
-                    <p id="computer_Score">Computer:</p>
-               </div>
-                
-                
-            </div>
-           
+                <p id="player_Score">Player: </p>
+                <p id="computer_Score">Computer:</p>
+                <p id="ties_Score">Ties: </p> 
+            </div>    
         </div>
+
         <div id="game-board">
             <div class="game-board__row">
                 <div id="box-0" class="game-board__box  border__bottom"></div>
@@ -42,37 +36,38 @@
                 <div id="box-6" class="game-board__box"></div>
                 <div id="box-7" class="game-board__box border__left"></div>
                 <div id="box-8" class="game-board__box border__left"></div>
-            </div>   
+            </div>  
+
+            <!-- ALERT Boxes -->
             
-        </div> 
-    <p id="reset_Button"
-        onclick="ticTacToe.masterReset()"
-    >Reset</p>
-    <p style="font-size: .8em; margin-top:20px">Designed and Coded by</p>
-    <p style="margin-top:-10px;">Alex Nye</p>
-    <div id="chooseXO" class="alert_box animated flipInX">
-        <h2 id="chooseTitle">Choose</h2>
-        <div class="alert_box_message">
-            <p class="alert_box_message_button" onclick="ticTacToe.chooseXOrO('x', 'chooseXO')">X</p>
-            <p>or</p>
-            <p class="alert_box_message_button" style="border-radius: 50%;" onclick="ticTacToe.chooseXOrO('o', 'chooseXO')">O</p>
-        </div>
-    </div>
-    <div id="oWins" class="alert_box  hide">
-        <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('oWins')">x</p>
-        <h2>O Wins!!!</h2>
-    </div>
-    <div id="xWins" class="alert_box hide">
-        <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('xWins')">x</p>
-        <h2>X Wins!!!</h2>
-    </div>
-    <div id="tie" class="alert_box hide">
-        <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('tie')">x</p>
-        <h2>Tie!!!</h2>
-    </div>
-
-
-</div> <!-- end container div            -->
+            <div id="chooseXO" class="alert_box animated flipInX">
+                <h2 id="chooseTitle">Choose</h2>
+                <div class="alert_box_message">
+                    <p class="alert_box_message_button" onclick="ticTacToe.chooseXOrO('x', 'chooseXO')">X</p>
+                    <p>or</p>
+                    <p class="alert_box_message_button" style="border-radius: 50%;" onclick="ticTacToe.chooseXOrO('o', 'chooseXO')">O</p>
+                </div>
+            </div>
+            <div id="oWins" class="alert_box  hide">
+                <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('oWins')">x</p>
+                <h2>O Wins!!!</h2>
+            </div>
+            <div id="xWins" class="alert_box hide">
+                <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('xWins')">x</p>
+                <h2>X Wins!!!</h2>
+            </div>
+            <div id="tie" class="alert_box hide">
+                <p class="x_out alert_box_message_button" onclick="ticTacToe.hideOrShow('tie')">x</p>
+                <h2>Tie!!!</h2>
+            </div>
+        </div> <!-- end board div -->
+        
+        <p id="reset_Button"
+            onclick="ticTacToe.masterReset()"
+        >Reset</p>
+        <p style="font-size: .8em; margin-top:20px">Designed and Coded by</p>
+        <p style="margin-top:-10px;">Alex Nye</p>
+    </div> <!-- end container div            -->
    
     <script src="script.js"></script>
 </body>
